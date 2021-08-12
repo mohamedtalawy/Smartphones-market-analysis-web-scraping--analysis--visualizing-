@@ -1,0 +1,45 @@
+CREATE DATABASE ITI;
+
+
+select * from souq;
+select * from jumia;
+select * from noon;
+
+ALTER TABLE souq 
+RENAME COLUMN Shipping TO Shipping_souq;
+ALTER TABLE souq 
+RENAME COLUMN URL TO URL_souq;
+ALTER TABLE souq 
+RENAME COLUMN URL TO URL_souq;
+
+ALTER TABLE noon 
+RENAME COLUMN Shipping TO Shipping_noon;
+ALTER TABLE noon 
+RENAME COLUMN URL TO URL_noon;
+ALTER TABLE noon 
+RENAME COLUMN Description TO Description_noon;
+
+ALTER TABLE jumia 
+RENAME COLUMN Shipping TO Shipping_jumia;
+ALTER TABLE jumia 
+RENAME COLUMN URL TO URL_jumia;
+ALTER TABLE jumia 
+RENAME COLUMN Description TO Description_jumia;
+ALTER TABLE jumia 
+RENAME COLUMN `Price Jumia` TO Price_jumia;
+
+
+SELECT*
+FROM
+  souq
+  INNER JOIN noon ON souq.Model = noon.Model
+  and souq.Ram = noon.Ram
+  and souq.Brand = noon.Brand
+  and souq.Storage = noon.Storage
+  and souq.Color = noon.Color
+  INNER JOIN jumia ON noon.Model = jumia.Model
+  and jumia.Ram = noon.Ram
+  and jumia.Brand = noon.Brand
+  and jumia.Storage = noon.Storage
+  and jumia.Color = noon.Color
+
